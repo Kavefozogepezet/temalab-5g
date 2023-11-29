@@ -1,0 +1,4 @@
+*.pdf
+*.rnote
+*.png
+network/__pycache__/
