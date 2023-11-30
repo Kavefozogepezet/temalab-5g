@@ -84,12 +84,24 @@
 \usepackage{tikz}
 \usepackage{wrapfig}
 
-\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
-
 \newcommand{\inedge}[1]{E^-(#1)}
 \newcommand{\outedge}[1]{E^+(#1)}
 
+\graphicspath{{../network/}}
+
+\definecolor{black}{RGB}{0, 0, 0}  % Blue color, adjust as needed
+
+% Configure hyperref to use the defined color for links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black
+}
+
 \counterwithin{equation}{section}
+
+\counterwithin{figure}{section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Itt kezdődik maga a dokumentum
@@ -184,7 +196,7 @@ Egy hálózatot reprezentálhatunk egy irányított gráffal. Legyen ez a gráf
 
 $$G = \lbrace V, E, w \rbrace \text{ ahol } V \text{ csúcshalmaz a hálózati eszközök halmaza },$$
 $$E = \lbrace e = (v_i, v_j) \, \vert \, v_i, v_j \in V \rbrace \text{ élhalmaz az eszközök közötti összeköttetések halmaza },$$
-$$\forall e \in E \quad w(e) \text{ az $e$ él súlya, az adat átküldési idejével arányos }.$$
+$$\forall e \in E \quad w(e) > 0 \text{ az $e$ él súlya, az adat átküldési idejével arányos }.$$
 
 A legrövidebb út problémánál adott a forrás és a cél eszköz, amelyek között útvonalat keresünk.
 Jelölje ezeket $s$ és $t$ csúcs.
@@ -213,7 +225,7 @@ A legrövidebb út összsúlya így az \eqref{eq:1.2b} kifejezés.
     \end{cases} \label{eq:1.2a}
   \end{equation}
   \begin{equation}
-    \min_{x(e)} \sum_{e}^{E} x(e) \, W(e) \label{eq:1.2b}
+    \min_{x(e)} \sum_{e}^{E} x(e) \, w(e) \label{eq:1.2b}
   \end{equation}
 \end{subequations}
 
@@ -262,14 +274,16 @@ fennmaradó kapcsolatot védelemként használva azon csak $\frac{D}{n - 1}$ for
 \subsection{Optimális útvonalak többfelhasználós esetben}
 \label{sec:multiuser}
 
-Több felhasználó esetén a felhasználókhoz külön külön útvonalat kell megállapítani.
+Egy hálózatra töb eszköz csatlakozik, melyek forgalma egyszerre közlekedik a hálózaton, ezért
+a modellt úgy kell kiegészíteni, hogy tetszőlegesen sok felhasználót és útvonalat támogasson.
 Legyen a felhasználók halmaza $U$.
-Mivel a felhasználók helyzete más, és különböző végpontokkal kommunikálnak, ezért külön forrás és cél csomópont, 
+Mivel a helyzetük más, és különböző végpontokkal kommunikálnak, ezért külön forrás és cél csomópont, 
 és külön $x(e)$ függvény tartozik hozzájuk, jelölje ezeket $u \in U \quad s_u, t_u, x_u(e)$,
-továbbá egyes felhasználóknak eltérő mennyiségű folyam igényei lehetnek, ezt jelölje $D_u$.
+továbbá egyes felhasználóknak eltérő mennyiségű folyam igényei lehetnek,
+ezért jelölje egy felhasználó igényét $D_u$.
 
 Figyelembe kell venni, hogy az egyes elemek közötti kapcsolatok véges sávszélességet tudnak csak biztosítani.
-Jelölje $e \in E \quad c(e)$ függvény egy összeköttetés maximális kapacitását.
+Legyen $e \in E \quad c(e)$ függvény ami megadja egy összeköttetés maximális kapacitását.
 A \eqref{eq:2.1b} kényszer biztosítja, hogy egy élen ne keletkezzen nagyobb forgalom, mint amennyit az el tud szállítani.
 
 A folyammegmaradási kényszer nem változik, de minden felhasználóra és minden csúcsra definiálni kell ezt mutatja a \eqref{eq:2.1a}.
@@ -295,7 +309,10 @@ az összes felhasználó utvonalának összsúlyának összege minimális.
 \subsection{Éldiszjunkt védelmi útvonalak}
 \label{sec:edgedisjunct}
 
-A védelmi útvonalak repreyentálhatók az $x_u(e)$ függvénnyekkel azonos módon.
+A védelmi útvonal arra szolgál, hogyha a főútvonal mentén bátmelyik kapcsolat kiesik,
+a védelmi útvonalon zavartalanul folytatódhasson a kommunikáció.
+Következésépp szükséges, hogy a védelmi út éldiszjunkt legyen a fő útvonallal.
+A védelmi útvonalak reprezentálhatók az $x_u(e)$ függvénnyekkel azonos módon.
 A védelmi és fő útvonalak megkülönböztetése érdekében a védelmi utakat jelöljék az $y_u(e)$ függvények.
 A \eqref{eq:2.1a} egyenlet megfelelő védelmi utak mellett is.
 A mintájára felírható \eqref{eq:2.2a} kényszer,
@@ -334,8 +351,8 @@ Például ha egy felhasználó számára két éldiszjunkt út áll rendelkezés
 Ezért a célfüggvényben a védelemi út összsúlya egy $\alpha \in (0, 1]$ szorzóval számítson bele az összegbe.
 Így a két lehetséges eset a célfüggvény értékére \eqref{2.4a} és \eqref{2.4b}.
 Az előbbiből kivonva az utóbbit áll elő \eqref{2.4c}.
-A \eqref{2.4d} egyenletből, $w_1, w_2$ és $\alpha$ értékei miatt látható,
-hogy a CPLEX helyesen fogja megválasztani a fő és cél útvonalt.
+A \eqref{2.4d} egyenletből, $w_1, w_2$ és $\alpha$ értéktartományai miatt
+a CPLEX helyesen fogja megválasztani a fő és cél útvonalt.
 
 \begin{subequations}
   \begin{equation}
@@ -358,8 +375,17 @@ A célfüggvény általános alakja a \eqref{eq:2.5} kifejezés.
 
 TODO: FOLYAM ABRAK
 
-\subsection{Egyszerű 5G hálózat modellezése}
+\subsection{Egyszerűsített 5G hálózat modellezése}
 \label{sec:5gnetwork}
+
+Az 5G hálózat egy egyszerűsített modellje látható a \ref{fig:2.1} ábrán.
+A mobil eszközök (UE) a gNodeB állomásokra csatlakoznak.
+A gNodeB-k és az átjáró közötti útvonalakat (a maghálózat további elemeit) egy-egy kapcsolat reprezentálja.
+A modell csak a felmenő kapcsolatokat tartalmazza.
+Mivel a gNodeB-k egymás között nem közvetítenek felhasználói adatforgalmat,\footnote{
+  Bár az Xn protokoll lehetővé teszi hogy a gNodeB-k közvetlenül kommunikáljanak, ez handover lebonyolítására és diagnosztikai adatok továbbítására használatos.'
+}
+feltételezhető hogy minden UE forgalmának a célja az átjáró.
 
 \usetikzlibrary{arrows.meta}
 \begin{figure}[h]
@@ -389,8 +415,67 @@ TODO: FOLYAM ABRAK
   
     % Edges
   \end{tikzpicture}
-  \caption{Az egysyerűsített 5G hálózat topológiája.} \label{fig:1}
+  \caption{Az egysyerűsített 5G hálózatot ábrázoló gráf.} \label{fig:2.1}
 \end{figure}
+
+A mobil eszközök és állomások között vezetéknélküli a kapcsolat,
+ezért a pozíciójuk hasznos információ.
+Legyen a $v \in V \quad p(v)$ az adott csomópont pozíciója a térben.
+Ekkor a mobil eszköz és állomás közötti kapcsolat súlya megadható a köztük lévő távolság
+és $B$ alap feldolgozási idő összegeként.
+Az állomás és az átjáró közötti kapcsolatok súlya beállítható az adott maghálózat valós felépítéséből kiindulva.
+Így \eqref{eq:2.6} a teljes súlyfüggvény.
+$U \subset V, N \subset V, gw \in V$ a mobil eszköz és állomás csúcsok halmazai, valamint az átjáró csúcsa.
+
+\begin{equation}
+  \forall e = (v_i, v_j) \in E \quad w(e) = \begin{cases}
+    \vert p(v_i) - p(v_j) \vert + B, & \text{ha $v_i$ egy mobil eszköz} \\
+    W_i, & \text{különben ($v_i$ egy állomás)}
+  \end{cases} \label{eq:2.6}
+\end{equation}
+
+A többszörös csatlakozás, és több utas protokollok támogatása érdekében a moddellt úgy kell módosítani,
+hogy egy mobil eszköz akárhány részre tudja osztani a forgalmát.
+Az $x_u(e), y_u(e)$ függvények értéktartománya tehát legyen a pozitív valós számok halmaza, és jelöljék azt,
+hogy az adott élen a mobil eszköz mennyi fő és védelmi forgalmat küld.
+A folyammegmaradási kényszer felírható a bázisállomásokra a \eqref{eq:2.7a} egyenlettel.
+Mivel a gNodeB-átjáró kapcsolatok folyamait determinálják a gNodeB-be befutó folyamok,
+ezért ezekre az élekre nem szükséges döntési változót felvenni.
+A mobil eszközökből kifolyó fő forgalomnak pedig egyenlőnek kell lennie a felhasználó igényével,
+ezt fejezi ki a \eqref{eq:2.7b} kényszer.
+
+\begin{subequations}
+  \begin{equation}
+    \forall n \in N, \, e_{n} = (n, gw) \quad
+    x_n(e_n) = \sum_{e=(u,n)}^{\inedge{n}} x_u(e) \,; \quad
+    y_n(e_n) = \sum_{e=(u,n)}^{\inedge{n}} y_u(e) \label{eq:2.7a}
+  \end{equation}
+  \begin{equation}
+    \forall u \in U \quad \sum_{e}^{\outedge{u}} x_u(e) = D_u \label{eq:2.7b}
+  \end{equation}
+\end{subequations}
+
+Mivel az adatfolyam megosztott, nem szükséges hogy a védelmi folyam éldiszjunkt legyen a fő folyammal.
+Egy mobil eszköz például dönthet úgy, hogy több útvonalat tart fönn, és mindegyiken fő és védelmi forgalmat is számol.
+Ez nem probléma, ha egy útvonal kiesése esetén a többin a védelmek és fő folyamok összege legalább akkora, mint a felhasználó forgalom igénye.
+Hogy ez teljesüljön, felírható a \eqref{eq:2.8} kényszer.
+
+\begin{equation}
+  \forall u \in U \quad \forall e' \in \outedge{u} \quad
+  E' = \outedge{u} \setminus \lbrace e' \rbrace, \quad
+  \sum_{e}^{E'} x_u(e) + y_u(e) \geq D_u \label{eq:2.8}
+\end{equation}
+
+Az alulról korlátozó kényszerek ezzel készen vannak. A felső korlátot ismét az élek maximum kapacitása adja.
+Az $x_u(e)$ és $y_u(e)$ függvények most önmagukban megadják az élen futó összes forgalmat,
+így a kapacitás kényszer \eqref{eq:2.9}.
+
+\begin{equation}
+  \forall e \in E \quad \sum_{u}^{U} x_u(e) + y_u(e) \leq c(e) \label{eq:2.9}
+\end{equation}
+
+Végezetül a \eqref{eq:2.5} kifejezés ebben az esetben is használható célfüggvényként.
+
 
 
 \newpage
@@ -421,52 +506,12 @@ Elérhető: \url{https://www.usenix.org/system/files/login/articles/login1210_bo
 
 \end{thebibliography}
 
-Itt jegyezném meg, hogy a tanulmányozott irodalmat hivatkozni kell a
-szövegben.  Szükség esetén többször is.  Az irodalomjegyzék célja
-(lásd \aref{sec:tanulm-irod-jegyz} fejezetet) ugyanis
-kettős\footnote{Akárcsak ennek a fejezet hivatkozásnak, ami a
-  \texttt{$\backslash$aref babel} parancsot demonstrálja}:
-\begin{enumerate}
-\item Az olvasó tájékoztatása, hogy a dokumentumban ki nem fejtett
-  dolgoknak, a tudottnak vélt ismereteknek hol lehet bővebben
-  utánanézni, így ott kell meghivatkozni az irodalmat~\cite{eco,
-    esterhazy}, ahová az irodalom kapcsolódik.
-\item Megmutatni a tárgyfelelosnek/konzulesnek az elolvasott irodalom
-  mennyiségét
-\end{enumerate}
-
-Javasoljuk, hogy a hallgatók tanulmányozzák, hogyan néznek ki a
-hivatkozások a villamosmérnöki/informatikai szakma vezető szakmai
-folyóirataiban megjelenő cikkekben.  Ebben a témavezető is biztosan
-tud segíteni.  A hivatkozás teljességére és egyértelműségére tessék
-ügyelni.  Például, ha egy könyvnek több, eltérő kiadása is van, akkor
-azt is meg kell jelölni, hogy melyik kiadásra hivatkozunk.  A webes
-hivatkozások problémásak szoktak lenni, de manapság egyre több az
-olyan dokumentum, ami csak weben lelhető fel, ezért használatuk nem
-zárható ki. Itt is törekedni kell azonban a pontosságra és a
-visszakereshetőségre. A weben található dokumentumoknak is van címe,
-szerzője, illetve érdemes megadni a letöltés/olvasás időpontját is,
-hiszen ezek a dokumentumok idővel megváltozhatnak.
-
-A wikipédiás hivatkozások használata nem javasolt, mert a wikipedia
-másodlagos forrás.  Tájékozodjuk a wikipédián, de aztán olvassuk el az
-adott oldalhoz megadott hivatkozásokat is.  A wikipedián külön szócikk
-foglalkozik azzal, hogy miért nem szerencsés tudományos munkákban a
-wikipédiára hivatkozni \cite{wikipedia}.
-
-Nem publikus dokumentumok hivatkozása nem javasolt és csak kivételes
-helyzetben elfogadható!
-
 %==================================================================
 \subsection{A csatlakozó dokumentumok jegyzéke}
 \label{sec:csat-irod}
 
-<A munka ezen beszámolóba be nem fért eredményeinek (például a forrás
-fájlok, mindenképpen csatolni akart forráskód részlet, felhasználói
-leírások, programozói leírások (API), stb.) megnevezése,
-fellelhetőségi helyének pontos definíciója, mely alapján a az
-erőforrás előkereshető -- értelemszerűen nem nyilvános dokumentumok
-hivatkozása nem elfogadható.>
+Az elkészített program teljes forráskódja megtalálható az alábbi GitHub repository-ban:\\
+\href{https://github.com/Kavefozogepezet/temalab-5g.git}{https://github.com/Kavefozogepezet/temalab-5g.git}
 
 \end{document} 
 
