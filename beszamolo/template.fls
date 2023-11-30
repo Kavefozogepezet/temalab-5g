@@ -828,8 +828,18 @@ INPUT D:\Program Files\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT D:\Program Files\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT D:\Program Files\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT D:\Program Files\MikTex\tex\latex\graphics\color.sty
-OUTPUT template.out
+INPUT .\template.out
+INPUT template.out
+INPUT .\template.out
+INPUT template.out
+INPUT .\template.out
+INPUT template.out
+INPUT .\template.out
+INPUT template.out
 OUTPUT template.pdf
+INPUT .\template.out
+INPUT .\template.out
+OUTPUT template.out
 INPUT D:\Program Files\MikTex\tex\latex\base\article.cls
 INPUT .\onlabmacros.tex
 INPUT .\onlabmacros.tex
@@ -838,6 +848,17 @@ INPUT onlabmacros.tex
 INPUT .\onlabmacros.tex
 INPUT .\onlabmacros.tex
 INPUT onlabmacros.tex
+INPUT .\figs\\bme_logo.eps
+INPUT figs\\bme_logo.eps
+INPUT .\figs\\bme_logo.eps
+INPUT .\figs\\bme_logo.eps
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
+INPUT .\figs\\bme_logo.eps
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
+INPUT .\figs\\bme_logo-eps-converted-to.pdf
 INPUT D:\Program Files\MikTex\fonts\tfm\adobe\times\ptmr8t.tfm
 INPUT D:\Program Files\MikTex\fonts\tfm\adobe\times\ptmb8t.tfm
 INPUT D:\Program Files\MikTex\fonts\tfm\adobe\times\ptmr8t.tfm

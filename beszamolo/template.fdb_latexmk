@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1701306948 "d:/BME/5g/temalab-5g/beszamolo/template.tex" "template.pdf" "template" 1701306950 2
+["pdflatex"] 1701307119 "d:/BME/5g/temalab-5g/beszamolo/template.tex" "template.pdf" "template" 1701307121 0
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1695455089 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1701290458 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1701290460 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -185,13 +185,13 @@
   "D:/Program Files/MikTex/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "D:/Program Files/MikTex/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "D:/Program Files/MikTex/tex/latex/xcolor/xcolor.sty" 1656233290 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "bme_logo" 0 -1 0 ""
-  "d:/BME/5g/temalab-5g/beszamolo/template.tex" 1701306944 24714 88606418e4b3b891c7e70aabb57bb251 ""
+  "d:/BME/5g/temalab-5g/beszamolo/template.tex" 1701307118 24682 8672d4c7b384750679bc79944c1ceaa1 ""
+  "figs//bme_logo.eps" 1701290403 437549 274338ffc6cb74279dc9a49a3bb2cdb0 ""
   "magyar.ldf" 1701290403 251721 e53970476a069449afc196d90bc7bfbe ""
   "onlabmacros.tex" 1701290403 2155 e8257a7345f44c6f490605642acfc350 ""
-  "template.aux" 1701306949 5480 65042659732af59be4e4db0ead077075 "pdflatex"
-  "template.out" 1701306949 2819 5db0d9ffc316da5e8b9777fe9bf97515 "pdflatex"
-  "template.tex" 1701306944 24714 88606418e4b3b891c7e70aabb57bb251 ""
+  "template.aux" 1701307120 5480 65042659732af59be4e4db0ead077075 "pdflatex"
+  "template.out" 1701307120 2819 5db0d9ffc316da5e8b9777fe9bf97515 "pdflatex"
+  "template.tex" 1701307118 24682 8672d4c7b384750679bc79944c1ceaa1 ""
   (generated)
   "template.aux"
   "template.log"

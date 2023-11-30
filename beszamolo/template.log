@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.23)  30 NOV 2023 02:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.23)  30 NOV 2023 02:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -482,8 +482,8 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \WF@everypar=\toks37
 Package: wrapfig 2003/01/31  v 3.6
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 100.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 109.
+Package hyperref Info: Option `colorlinks' set `true' on input line 98.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 107.
  (D:\Program Files\MikTex\tex/latex/psnfss\t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (D:\Program Files\MikTex\tex/latex/l3backend\l3backend-pdftex.def
@@ -493,24 +493,24 @@ File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
 ) (template.aux)
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -569,7 +569,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (D:\Program Files\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 109.
+Package hyperref Info: Link coloring ON on input line 107.
+ (template.out) (template.out)
 \@outlinefile=\write4
 \openout4 = `template.out'.
 
@@ -577,59 +578,40 @@ Package hyperref Info: Link coloring ON on input line 109.
 LaTeX Info: Redefining \cal on input line 497.
 LaTeX Info: Redefining \mit on input line 498.
 ) (onlabmacros.tex)
+Package epstopdf Info: Source file: <./figs//bme_logo.eps>
+(epstopdf)                    date: 2023-11-29 21:40:03
+(epstopdf)                    size: 437549 bytes
+(epstopdf)             Output file: <./figs//bme_logo-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-11-29 21:40:57
+(epstopdf)                    size: 20688 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=./figs//bme_logo-eps-converted-to.pdf ./figs//bme_logo.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
 
-d:/BME/5g/temalab-5g/beszamolo/template.tex:119: LaTeX Error: File `bme_logo' not found.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119       \includegraphics[width=12cm]{bme_logo}
-                                                  
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 143.
+pdfTeX warning: pdflatex (file ./figs//bme_logo-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<./figs//bme_logo-eps-converted-to.pdf, id=50, 705.63625pt x 188.705pt>
+File: ./figs//bme_logo-eps-converted-to.pdf Graphic file (type pdf)
+<use ./figs//bme_logo-eps-converted-to.pdf>
+Package pdftex.def Info: ./figs//bme_logo-eps-converted-to.pdf  used on input line 117.
+(pdftex.def)             Requested size: 341.43306pt x 91.30873pt.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 141.
 (D:\Program Files\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 143.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 141.
  (D:\Program Files\MikTex\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
 [1
 
 
-{C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Program Files/MikTex/fonts/enc/dvips/base/8r.enc}]
-
-LaTeX Warning: Reference `eq:1.1' on page 1 undefined on input line 203.
-
-
-LaTeX Warning: Reference `eq:1.2a' on page 1 undefined on input line 214.
-
-
-LaTeX Warning: Reference `eq:1.2b' on page 1 undefined on input line 217.
-
-
-LaTeX Warning: Reference `eq:1.2a' on page 1 undefined on input line 249.
-
-
-LaTeX Warning: Reference `eq:1.2b' on page 1 undefined on input line 249.
-
-
-LaTeX Warning: Citation `multiconnectivity' on page 1 undefined on input line 263.
-
-
-LaTeX Warning: Citation `mptcp' on page 1 undefined on input line 264.
-
-
-Underfull \hbox (badness 3977) in paragraph at lines 258--269
+{C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/Program Files/MikTex/fonts/enc/dvips/base/8r.enc} <./figs//bme_logo-eps-converted-to.pdf>]
+Underfull \hbox (badness 3977) in paragraph at lines 256--267
 \T1/ptm/m/n/10 sáv-szé-les-sé-get. [[]] Meg-je-len-tek olyan IP ala-pú pro-to-kol-lok, pél-dá-ul az MC-TCP [[]] amik
  []
 
@@ -637,250 +619,174 @@ Underfull \hbox (badness 3977) in paragraph at lines 258--269
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.269 
+l.267 
        [1
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 
+l.267 
       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 
-      ]
-
-LaTeX Warning: Reference `eq:2.1b' on page 2 undefined on input line 287.
-
-
-LaTeX Warning: Reference `eq:2.1a' on page 2 undefined on input line 289.
-
-
-LaTeX Warning: Reference `eq:2.1c' on page 2 undefined on input line 290.
-
-
-LaTeX Warning: Reference `eq:2.1a' on page 2 undefined on input line 317.
-
-
-LaTeX Warning: Reference `eq:2.2a' on page 2 undefined on input line 318.
-
-
-LaTeX Warning: Reference `eq:2.2b' on page 2 undefined on input line 320.
-
-[2
+l.267 
+      ] [2
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.336 \newpage
+l.334 \newpage
               
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.336 \newpage
+l.334 \newpage
               
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.336 \newpage
+l.334 \newpage
               
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.336 \newpage
+l.334 \newpage
               ]
-
-LaTeX Warning: Reference `eq:2.3' on page 3 undefined on input line 340.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.342 \begin{equation}
+l.340 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.342 \begin{equation}
+l.340 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.342 \begin{equation}
+l.340 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.342 \begin{equation}
+l.340 \begin{equation}
                       
-
-LaTeX Warning: Reference `2.4a' on page 3 undefined on input line 352.
-
-
-LaTeX Warning: Reference `2.4b' on page 3 undefined on input line 352.
-
-
-LaTeX Warning: Reference `2.4c' on page 3 undefined on input line 353.
-
-
-LaTeX Warning: Reference `2.4d' on page 3 undefined on input line 354.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.358   \begin{equation}
+l.356   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.358   \begin{equation}
+l.356   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.358   \begin{equation}
+l.356   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.358   \begin{equation}
+l.356   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.361   \begin{equation}
+l.359   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.361   \begin{equation}
+l.359   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.361   \begin{equation}
+l.359   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.361   \begin{equation}
+l.359   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.367   \end{align}
-                   
-
-LaTeX Warning: Reference `eq:2.5' on page 3 undefined on input line 370.
-
-
-LaTeX Warning: Reference `fig:2.1' on page 3 undefined on input line 381.
-
-(D:\Program Files\MikTex\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+l.365   \end{align}
+                    (D:\Program Files\MikTex\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen276
 \pgfarrowlength=\dimen277
 \pgfarrowwidth=\dimen278
 \pgfarrowlinewidth=\dimen279
-)
-
-LaTeX Warning: Reference `eq:2.6' on page 3 undefined on input line 427.
-
-[3
+) [3
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.430 \begin{equation}
+l.428 \begin{equation}
                       ]
-
-LaTeX Warning: Reference `eq:2.7a' on page 4 undefined on input line 441.
-
-
-LaTeX Warning: Reference `eq:2.7b' on page 4 undefined on input line 445.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.448   \begin{equation}
+l.446   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.448   \begin{equation}
+l.446   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.448   \begin{equation}
+l.446   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.448   \begin{equation}
+l.446   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.453   \begin{equation}
+l.451   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.453   \begin{equation}
+l.451   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.453   \begin{equation}
+l.451   \begin{equation}
                         
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.453   \begin{equation}
-                        
-
-LaTeX Warning: Reference `eq:2.8' on page 4 undefined on input line 461.
-
-
-LaTeX Warning: Reference `eq:2.9' on page 4 undefined on input line 471.
-
-
-LaTeX Warning: Reference `eq:2.5' on page 4 undefined on input line 477.
-
-[4] [5]
-Underfull \hbox (badness 6078) in paragraph at lines 495--500
+l.451   \begin{equation}
+                         [4] [5]
+Underfull \hbox (badness 6078) in paragraph at lines 493--498
 \T1/pcr/m/n/10 december-[]2020 / multi-[]connectivity-[]in-[]5g-[]new-[]radio-[]standards/$[][] \T1/ptm/m/n/10 2023. no-
  []
 
 [6] (template.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `template.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `template.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  5DB0D9FFC316DA5E8B9777FE9BF97515;2819.
+Package rerunfilecheck Info: File `template.out' has not changed.
+(rerunfilecheck)             Checksum: 5DB0D9FFC316DA5E8B9777FE9BF97515;2819.
  ) 
 Here is how much of TeX's memory you used:
- 22815 strings out of 476331
- 427066 string characters out of 5797583
+ 22837 strings out of 476331
+ 427578 string characters out of 5797583
  1867660 words of memory out of 5000000
- 42805 multiletter control sequences out of 15000+600000
+ 42822 multiletter control sequences out of 15000+600000
  557256 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,89p,440b,691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,89p,624b,691s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Program Files/MikTex/fonts/type1/urw/courier/ucrb8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (7 pages, 214808 bytes).
+Output written on template.pdf (7 pages, 243028 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
+ 231 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
