@@ -1,4 +1,4 @@
 *.pdf
 *.rnote
-*.png
+constraints_for_5g.png
 network/__pycache__/
