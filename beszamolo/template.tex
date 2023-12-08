@@ -181,15 +181,14 @@
 \subsection{Bevezető}
 \label{sec:bevezeto}
 
-
-
-Hálózat kiépítés és karbantartás költséges => nem éri meg a kihasználatlan kapacitás
-
-Telített hálózaton lassú adattovábbítás => szigorú 5G Qos előírások nem teljesülnek
-
-A hálózatot modellezve felmérhető annak teljesítménye => win-win a usernek és üzemeltetőnek
-
-Ez optimalizálási feladat, amit jó lenne lineáris időben végezni
+A hálózat optimális működése a szolgáltató, és a felhasználó érdeke is.
+A felhasználónak azért, mert adatforgalmát minél hamarabb szeretné célba juttatni.
+A szolgáltatónak pedig azért, mert optimális adatfolyam mellett kevesebb
+hálózati eszközt kell fenntartania.
+Az IBM CPLEX olyan szoftver, amely a simplex módszerrel nagy számú lineáris kényszer
+és egy célfüggvény alapján hatékonyan számol optimális megoldást.
+A hálózati folyamra kényszerek és célfüggvény felírása után
+ennek segítségével optimális megoldást található.
 
 \subsection{Elméleti összefoglaló}
 
