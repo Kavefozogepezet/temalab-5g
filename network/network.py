@@ -44,9 +44,9 @@ class Network:
 
     def plot(self):
         pos = self.__get_pos()
-        draw_networkx(self.g, pos)
+        draw_networkx(self.g, pos, node_color='none', edgecolors='black', with_labels=False)
         labels = get_edge_attributes(self.g, 'cost')
-        draw_networkx_edge_labels(self.g, pos, edge_labels=labels)
+        #draw_networkx_edge_labels(self.g, pos)
 
     def plot_path(self, path:[Edge], color: str, width = 2):
         pos = self.__get_pos()
@@ -54,7 +54,7 @@ class Network:
         labels = get_edge_attributes(self.g, 'cost')
 
         draw_networkx_edges(self.g, pos, path_edges, width=width, edge_color=color, arrowsize=20)
-        draw_networkx_edge_labels(self.g, pos, edge_labels=labels)
+        #draw_networkx_edge_labels(self.g, pos, edge_labels=labels)
 
     def plot_nodes(self, nodes, color: str):
         pos = self.__get_pos()
@@ -76,9 +76,9 @@ class Network:
 
     
     def random(node_table_size, degree):
-        rand_pos = [[i * 10, j * 10] for i in range(0, node_table_size) for j in range(0, node_table_size)]
+        rand_pos = [[i * 100, j * 100] for i in range(0, node_table_size) for j in range(0, node_table_size)]
         for i in range(0, len(rand_pos)):
-            rand_pos[i] = [rand_pos[i][0] + randint(0, 6), rand_pos[i][1] + randint(0, 6)]
+            rand_pos[i] = [rand_pos[i][0] + randint(0, 60), rand_pos[i][1] + randint(0, 60)]
 
         node_count = node_table_size ** 2
 

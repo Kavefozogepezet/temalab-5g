@@ -83,6 +83,7 @@
 \usepackage{mathrsfs}
 \usepackage{tikz}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 
 \newcommand{\inedge}[1]{E^-(#1)}
 \newcommand{\outedge}[1]{E^+(#1)}
@@ -142,21 +143,19 @@
  
  
 %\feladatcim argumentuma a feladat rövid, 1 soros címe
-  \feladatcim{Hálózati folyam modellezése és optimalizálása lineáris módszerekkel.} 
+  \feladatcim{Hálózati folyam modellezése és optimalizálása.} 
 
   %\feladatmaga argumentuma a feladat 1-2 bekezdésnyi ismertetése
   \feladatmaga{
     Legrövidebb út probléma megoldása
-    IBM ILOG CPLEX Optimizer\footnote
-    {
+    IBM ILOG CPLEX Optimizer\footnote{
       Az IBM CPLEX a simplex módszerre épülő szoftver, lineáris kényszerekkel megadott optimalizálási feladatok megoldására. A szoftver elérhető az IBM honlapján:
        \href{https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-optimizer}
             {https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-optimizer}
     }
     használatával. Meghibásodás esetére optimális, a fő útvonallal éldiszjunkt védelmi útvonal számítása.
-    A megoldások alkalmazása általános 5G hálózatra, amelyben mobil ezközök, gNodeB bázisállomások és egy
-    átjáró\footnote
-    {
+    A megoldások alkalmazása általános 5G hálózatra, amelyben mobil eszközök, gNodeB bázisállomások és egy
+    átjáró\footnote{
       A hálózatot más hálózatokkal összekötő hálózati eszköz, általában az angol gateway kifejezés magyarítása.
     }
     szerepel.
@@ -171,6 +170,8 @@
  
 \end{titlepage}
 
+\graphicspath{{../network/diagrams/}}
+
 %==================================================================
 \section{A laboratóriumi munka környezetének ismertetése,
      a munka előzményei és kiindulási állapota}
@@ -179,6 +180,8 @@
 % \newpage
 \subsection{Bevezető}
 \label{sec:bevezeto}
+
+
 
 Hálózat kiépítés és karbantartás költséges => nem éri meg a kihasználatlan kapacitás
 
@@ -192,13 +195,13 @@ Ez optimalizálási feladat, amit jó lenne lineáris időben végezni
 
 Egy hálózatot reprezentálhatunk egy irányított gráffal. Legyen ez a gráf
 
-$$G = \lbrace V, E, w \rbrace \text{ ahol } V \text{ csúcshalmaz a hálózati eszközök halmaza },$$
-$$E = \lbrace e = (v_i, v_j) \, \vert \, v_i, v_j \in V \rbrace \text{ élhalmaz az eszközök közötti összeköttetések halmaza },$$
-$$\forall e \in E \quad w(e) > 0 \text{ az $e$ él súlya, az adat átküldési idejével arányos }.$$
+$$G = \lbrace V, E, w \rbrace \text{ ahol } V \text{ csúcshalmaz a hálózati eszközök halmaza},$$
+$$E = \lbrace e = (v_i, v_j) \, \vert \, v_i, v_j \in V \rbrace \text{ élhalmaz az eszközök közötti összeköttetések halmaza},$$
+$$\forall e \in E \quad w(e) > 0 \text{ az $e$ él súlya, az adat átküldési idejével arányos}.$$
 
 A legrövidebb út problémánál adott a forrás és a cél eszköz, amelyek között útvonalat keresünk.
 Jelölje ezeket $s$ és $t$ csúcs.
-Egy $s$ és $t$ közöti körmentes utat megadhatunk \eqref{eq:1.1} egyenlettel.
+Egy $s$ és $t$ közötti körmentes utat megadhatunk \eqref{eq:1.1} egyenlettel.
 
 \begin{equation}
   \forall e \in E \quad x(e) = \begin{cases}
@@ -231,14 +234,15 @@ A legrövidebb út probléma megoldására használható az IBM ILOG (CPLEX) Opt
 ami egy a Simplex módszerre épülő szoftvercsomag.
 Segítségével lineáris programozási optimalizálási \linebreak problémákat modellezhetünk,
 az elkészített modellre a szoftverrel optimális stratégia kereshető.
-A modellt döntési változók (röviden változók), kényszerek és egy célfüggvénny alkotja.
-A döntési változók egészek, valós számok, vagy logikai 1 és 0 típusúak lehetnek.
+A modellt döntési változók (röviden változók), kényszerek és egy célfüggvény alkotja.
+A változók egészek, valós számok, vagy logikai 1 és 0 típusúak lehetnek.
 Az egyes változók értékkészletére tehetünk további megkötést.
 A kényszerek lineáris egyenletek vagy egyenlőtlenségek, amikben az ismeretlenek a döntési változók.
-Egy kényszer a válozók által felvehető értékeket korlátozza.
+Egy kényszer a változók által felvehető értékeket korlátozza.
 A probléma megoldása egy olyan változó érték hozzárendelés, amelyre az összes kényszer teljesül.
 A célfüggvény a változók egy lineáris kombinációja.
-Az optimális megoldás az, amely esetén a célfüggvényt értéke - a problémától függően - maximális vagy minimális.
+Az optimális megoldás az, amely esetén a célfüggvény értéke
+-- a problémától függően --  maximális vagy minimális.
 
 Bár a szoftvert komplexebb problémákra tervezték, a legrövidebb út probléma jó
 alapot szolgáltat a bonyolultabb hálózatokkal kapcsolatos problémák megoldásához.
@@ -248,7 +252,7 @@ Az \eqref{eq:1.2a} egyenlet egy kényszer, a célfüggvény az \eqref{eq:1.2b} k
 
 A legrövidebb útvonal ismerete azonban még nem feltétlenül elégséges,
 figyelembe kell venni, hogy az egyes kapcsolatok megszakadhatnak.
-Ha az útvonal mentén egy kapcsolat kiesik, e-miatt megszakadhat a kommunikáció.
+Ha az útvonal mentén egy kapcsolat kiesik, emiatt megszakadhat a kommunikáció.
 Megoldást jelenthet a legrövidebb út mellett egy védelmi útvonal keresése,
 amely \linebreak éldiszjunkt a fő útvonallal.
 Ha a fő útvonalon megszakad a kapcsolat, a védelmi úton folytatódhat a kommunikáció.
@@ -261,7 +265,7 @@ egyszerre több gNodeB-vel\footnote{
 tartson fenn aktív kapcsolatot, így növelve a szolgáltatás minőségét és az elérhető sávszélességet. \cite{multiconnectivity}
 Megjelentek olyan IP alapú protokollok, például az MC-TCP \cite{mptcp} amik \linebreak támogatják két eszköz között több kapcsolat felállítását, különböző interfészeken.
 A többutas kapcsolatot elfedik, az alkalmazás rétegből a többszörös csatlakozás nem látszik.
-Egyszeres kapcsolódás esetén, ha egy UE forgalma $D$, akkor e-mellé egy ugyanekkora éldiszjunkt védelmi útvonalat kell nyilvántartani.
+Egyszeres kapcsolódás esetén, ha egy UE forgalma $D$, akkor emellé egy ugyanekkora éldiszjunkt védelmi útvonalat kell nyilvántartani.
 Azonban ha egy UE $n$ darab kapcsolaton osztja el a forgalmát, $n - 1$ kapcsolaton küldhet egyenként $\frac{D}{n - 1}$ forgalmat, a
 fennmaradó kapcsolatot védelemként használva azon csak $\frac{D}{n - 1}$ forgalomra lesz szükség, ha egy kapcsolat megszűnését feltételezzük.
 
@@ -272,7 +276,7 @@ fennmaradó kapcsolatot védelemként használva azon csak $\frac{D}{n - 1}$ for
 \subsection{Optimális útvonalak többfelhasználós esetben}
 \label{sec:multiuser}
 
-Egy hálózatra töb eszköz csatlakozik, melyek forgalma egyszerre közlekedik a hálózaton, ezért
+Egy hálózatra több eszköz csatlakozik, melyek forgalma egyszerre közlekedik a hálózaton, ezért
 a modellt úgy kell kiegészíteni, hogy tetszőlegesen sok felhasználót és útvonalat támogasson.
 Legyen a felhasználók halmaza $U$.
 Mivel a helyzetük más, és különböző végpontokkal kommunikálnak, ezért külön forrás és cél csomópont, 
@@ -284,9 +288,9 @@ Figyelembe kell venni, hogy az egyes elemek közötti kapcsolatok véges sávsz�
 Legyen $e \in E \quad c(e)$ függvény ami megadja egy összeköttetés maximális kapacitását.
 A \eqref{eq:2.1b} kényszer biztosítja, hogy egy élen ne keletkezzen nagyobb forgalom, mint amennyit az el tud szállítani.
 
-A folyammegmaradási kényszer nem változik, de minden felhasználóra és minden csúcsra definiálni kell ezt mutatja a \eqref{eq:2.1a}.
+A folyammegmaradási kényszer nem változik, de minden felhasználóra és minden csúcsra definiálni kell, ezt mutatja a \eqref{eq:2.1a}.
 A \eqref{eq:2.1c} kifejezéssel leírt célfüggvénnyel optimálisnak tekinthető megoldás kapható:
-az összes felhasználó utvonalának összsúlyának összege minimális.
+az összes felhasználó útvonalának összsúlyának összege minimális.
 
 \begin{subequations}
   \begin{equation}
@@ -307,13 +311,13 @@ az összes felhasználó utvonalának összsúlyának összege minimális.
 \subsection{Éldiszjunkt védelmi útvonalak}
 \label{sec:edgedisjunct}
 
-A védelmi útvonal arra szolgál, hogyha a főútvonal mentén bátmelyik kapcsolat kiesik,
+A védelmi útvonal arra szolgál, hogy ha a főútvonal mentén bármelyik kapcsolat kiesik,
 a védelmi útvonalon zavartalanul folytatódhasson a kommunikáció.
-Következésépp szükséges, hogy a védelmi út éldiszjunkt legyen a fő útvonallal.
+Következésképp szükséges, hogy a védelmi út éldiszjunkt legyen a fő útvonallal.
 A védelmi útvonalak reprezentálhatók az $x_u(e)$ függvénnyekkel azonos módon.
 A védelmi és fő útvonalak megkülönböztetése érdekében a védelmi utakat jelöljék az $y_u(e)$ függvények.
 A \eqref{eq:2.1a} egyenlet megfelelő védelmi utak mellett is.
-A mintájára felírható \eqref{eq:2.2a} kényszer,
+A \eqref{eq:2.1a} mintájára felírható \eqref{eq:2.2a} kényszer,
 ami a védelmi útvonalakra mondja ki a folyammegmaradási kényszert.
 A \eqref{eq:2.2b} kényszer biztosítja, hogy akár fő, akár védelmi útvonal eleme egy él,
 a rajta átmenő folyam ne haladja meg a kapcsolat kapacitását.
@@ -334,7 +338,7 @@ a rajta átmenő folyam ne haladja meg a kapcsolat kapacitását.
 \newpage
 
 Ahhoz, hogy mindegyik $u \in U$ felhasználóra a hozzátartozó fő és védelmi útvonalak éldiszjunktak legyenek az kell,
-hogy minden élre $x_u(e)$ és $y_u(e)$ értékek közül csak egyik lehessen egy,
+hogy minden élre $x_u(e)$ és $y_u(e)$ értékek közül csak az egyik lehessen egy,
 hisz ekkor az él csak az egyik útvonalnak lehet a tagja. Ezt fejezi ki a \eqref{eq:2.3}-as egyenlőtlenség.
 
 \begin{equation}
@@ -350,7 +354,7 @@ Ezért a célfüggvényben a védelemi út összsúlya egy $\alpha \in (0, 1]$ s
 Így a két lehetséges eset a célfüggvény értékére \eqref{2.4a} és \eqref{2.4b}.
 Az előbbiből kivonva az utóbbit áll elő \eqref{2.4c}.
 A \eqref{2.4d} egyenletből, $w_1, w_2$ és $\alpha$ értéktartományai miatt
-a CPLEX helyesen fogja megválasztani a fő és cél útvonalt.
+a CPLEX helyesen fogja megválasztani a fő és cél útvonalat.
 
 \begin{subequations}
   \begin{equation}
@@ -371,17 +375,39 @@ A célfüggvény általános alakja a \eqref{eq:2.5} kifejezés.
   \min_{x_u(e), \, y_u(e)} \left \lbrace \sum_{u}^{U} \sum_{e}^{E} \left( x_u(e) + \alpha \, y_u(e) \right) w(e) \right \rbrace \label{eq:2.5}
 \end{equation}
 
-TODO: FOLYAM ABRAK
+Egy mintahálózatra adott megoldás látható a \ref{fig:2.1} diagramon.
+A hálózatra három felhasználó csatlakozik.
+Az élek súlya a csúcsok közötti távolság.
+Az élek kapacitása jóval nagyobb a felhasználók forgalmánál, hogy a szoftver szabadon választhassa a legrövidebb utakat.
+Látható hogy főútvonalnak (kék) a legrövidebb utat választja a modell,
+a védelmi útvonal (narancssárga) pedig éldiszjunkt a főútvonallal, és ennek a hossza is minimális.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.33\textwidth}
+    \includegraphics[width=\textwidth]{user0_with_protection.png}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.33\textwidth}
+    \includegraphics[width=\textwidth]{user1_with_protection.png}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.33\textwidth}
+    \includegraphics[width=\textwidth]{user2_with_protection.png}
+  \end{subfigure}
+  \caption{
+    Egy hálózaton három felhasználó küld egyszerre adatot.
+    Forrásuk és céljuk lilával, fő útvonaluk kékkel, mellék útvonaluk narancssárgával jelölve.
+    Az élek súlya a csúcsok közötti távolság.
+  } \label{fig:2.1}
+\end{figure}
 
 \subsection{Egyszerűsített 5G hálózat modellezése}
 \label{sec:5gnetwork}
 
-Az 5G hálózat egy egyszerűsített modellje látható a \ref{fig:2.1} ábrán.
+Az 5G hálózat egy egyszerűsített modellje látható a \ref{fig:2.2} ábrán.
 A mobil eszközök (UE) a gNodeB állomásokra csatlakoznak.
 A gNodeB-k és az átjáró közötti útvonalakat (a maghálózat további elemeit) egy-egy kapcsolat reprezentálja.
 A modell csak a felmenő kapcsolatokat tartalmazza.
 Mivel a gNodeB-k egymás között nem közvetítenek felhasználói adatforgalmat,\footnote{
-  Bár az Xn protokoll lehetővé teszi hogy a gNodeB-k közvetlenül kommunikáljanak, ez handover lebonyolítására és diagnosztikai adatok továbbítására használatos.'
+  Bár az Xn protokoll lehetővé teszi, hogy a gNodeB-k közvetlenül kommunikáljanak, ez handover lebonyolítására és diagnosztikai adatok továbbítására használatos.
 }
 feltételezhető hogy minden UE forgalmának a célja az átjáró.
 
@@ -413,10 +439,10 @@ feltételezhető hogy minden UE forgalmának a célja az átjáró.
   
     % Edges
   \end{tikzpicture}
-  \caption{Az egysyerűsített 5G hálózatot ábrázoló gráf.} \label{fig:2.1}
+  \caption{Az egyszerűsített 5G hálózatot ábrázoló gráf.} \label{fig:2.2}
 \end{figure}
 
-A mobil eszközök és állomások között vezetéknélküli a kapcsolat,
+A mobil eszközök és állomások között vezeték nélküli a kapcsolat,
 ezért a pozíciójuk hasznos információ.
 Legyen a $v \in V \quad p(v)$ az adott csomópont pozíciója a térben.
 Ekkor a mobil eszköz és állomás közötti kapcsolat súlya megadható a köztük lévő távolság
@@ -432,7 +458,7 @@ $U \subset V, N \subset V, gw \in V$ a mobil eszköz és állomás csúcsok halm
   \end{cases} \label{eq:2.6}
 \end{equation}
 
-A többszörös csatlakozás, és több utas protokollok támogatása érdekében a moddellt úgy kell módosítani,
+A többszörös csatlakozás, és több utas protokollok támogatása érdekében a modellt úgy kell módosítani,
 hogy egy mobil eszköz akárhány részre tudja osztani a forgalmát.
 Az $x_u(e), y_u(e)$ függvények értéktartománya tehát legyen a pozitív valós számok halmaza, és jelöljék azt,
 hogy az adott élen a mobil eszköz mennyi fő és védelmi forgalmat küld.
@@ -453,7 +479,7 @@ ezt fejezi ki a \eqref{eq:2.7b} kényszer.
   \end{equation}
 \end{subequations}
 
-Mivel az adatfolyam megosztott, nem szükséges hogy a védelmi folyam éldiszjunkt legyen a fő folyammal.
+Mivel az adatfolyam megosztott, nem szükséges, hogy a védelmi folyam éldiszjunkt legyen a fő folyammal.
 Egy mobil eszköz például dönthet úgy, hogy több útvonalat tart fönn, és mindegyiken fő és védelmi forgalmat is számol.
 Ez nem probléma, ha egy útvonal kiesése esetén a többin a védelmek és fő folyamok összege legalább akkora, mint a felhasználó forgalom igénye.
 Hogy ez teljesüljön, felírható a \eqref{eq:2.8} kényszer.
@@ -474,14 +500,90 @@ Az $x_u(e)$ és $y_u(e)$ függvények most önmagukban megadják az élen futó 
 
 Végezetül a \eqref{eq:2.5} kifejezés ebben az esetben is használható célfüggvényként.
 
+\newpage
 
+A modell segítségével a hálózati eszközök viselkedése megfigyelhető telített és telítetlen hálózaton.\footnote{
+  Egy telített hálózat olyan, amelynek kapcsolatainak kapacitása majdnem teljes kihasználtságú,
+  több forgalmat a hálózaton nem lehet átvinni.
+}
+Legyen egy teszthálózatban olyan, amiben négyszer négyes mátrixban helyezkednek el állomások,
+húsz mobil eszköz csatlakozik a hálózatra véletlenszerű pozícióval.
+Mindegyik eszköz mindegyik állomásra csatlakozik.
+Kezdetben az állomás-átjáró élek kapacitása legyen elég nagy, hogy a felhasználók igényeit gond nélkül elszállítsa a hálózat,
+aztán csökkenjenek addig, amíg a hálózat telített nem lesz.
+Minden egész kapacitás értékre futtatva a szoftvert,
+a kapott eredményt a \ref{fig:2.3} és \ref{fig:2.4} ábrán láthatók.
+
+A \ref{fig:2.3a} ábra a mobil eszközök összes kapcsolatát mutatja az egyes kapacitásszinteken.
+Egy mobil eszköz eredetileg minden állomáshoz kapcsolódik, de azok a kapcsolatok,
+amiken sem fő, sem védelmi folyamot nem számol, felbonthatók.
+Az ábrán az ez után maradt kapcsolatok jelennek meg. Eleinte a mobil eszközök a hozzájuk legközelebb eső, így legkisebb súlyú kapcsolatokon küldik minden adatukat,
+így kevés kapcsolatot tartanak fent.
+A kapacitás csökkenése miatt azonban a hálózat telített lesz.
+Az összfolyamot, tehát a fő és védelmi folyam összegét a hálózat már nem lesz képes elszállítani.
+Mivel a felhasználók igénye adott, csak a védelmi folyam csökkenthető.
+Látható, hogy a mobil eszközök egyre több kapcsolatot tartanak fönn,
+hiszen ekkor egy kapcsolatra a teljes folyam igény kisebb része jut,
+így egy él kiesése esetén kevesebb forgalmat kell másfelé irányítani,
+tehát összesen kevesebb védelmet kell biztosítani.
+A védelmi forgalom csökkenése látható a \ref{fig:2.3b} ábrán.
+A védelmen spórolva már elszállítható minden adat a hálózaton.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{number_of_connections.png}
+    \caption{
+      A mobil eszközök összes fenntartott kapcsolata az egyes kapacitás értékekre.
+    } \label{fig:2.3a}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{traffic_of_connections.png}
+    \caption{
+      A mobil eszközök által generált összforgalom.
+    } \label{fig:2.3b}
+  \end{subfigure}
+  \caption{Eszközök kapcsolatszámának növekedése, a védelmen való spórolás céljából.}
+  \label{fig:2.3}
+\end{figure}
+
+Ez addig folytatható, amíg már az összes mobil eszköz az összes állomásra csatlakozik.
+Ez után a kapcsolatok száma nem növelhető, ezért kisebb kapacitáson a védelem nem biztosítható.
+A \ref{2.4a} ábra mutatja a mobil eszközök kapcsolatszámának eloszlását.
+Itt is megfigyelhető, hogy az eszközök egyre több kapcsolatot létesítenek a védelem csökkentése érdekében.
+A teszthálózatban a minimális kapacitás érték százharmincnégy,
+ekkor már majdnem mindegyik eszköz mind a tizenhat állomásra csatlakozik.
+A \ref{2.4b} ábrán négy specifikus kapacitás értékre látható a kapcsolatszámok konkrét eloszlása.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{ue_connection_distribution.png}
+    \caption{
+      A mobil eszközök által fenntartott kapcsolatok számának eloszlása.
+    } \label{fig:2.3a}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{specific_distribution.png}
+    \caption{
+      A konkrét kapcsolatszám eloszlás néhány specifikus kapacitáson.
+    } \label{fig:2.3b}
+  \end{subfigure}
+  \caption{A kapcsolatszámok eloszlásának alakulása.}
+  \label{fig:2.4}
+\end{figure}
 
 \newpage
 
 \subsection{Összefoglalás}
 \label{sec:osszefoglalas}
 
-\newpage
+Egy hálózat komponenseire és kapcsolataira lineáris kényszerek, és lineáris célfüggvény adható.
+Ezek alapján az optimális hálózati folyam meghatározása egy lineáris programozási probléma.
+A hálózati szolgáltatás minőségének javítására a fő adatforgalom mellé
+védelmi adatforgalom számolható, amivel egy kapcsolat kiesése esetén a kommunikáció zavartalanul folytatódhat.
+A modell kiterjeszthető, hogy támogassa a többszörös csatlakoztatást.
+Egy egyszerűsített 5G hálózaton elvégzett teszten látható, hogy a modell hogyan használható
+a hálózati eszközök kapcsolatszámának, védelmi folyamának meghatározására az optimális
+hálózati folyam elérése érdekében.
  
 %==================================================================
 \section{Irodalom, és csatlakozó dokumentumok jegyzéke}
@@ -509,7 +611,7 @@ Elérhető: \url{https://www.usenix.org/system/files/login/articles/login1210_bo
 \label{sec:csat-irod}
 
 Az elkészített program teljes forráskódja megtalálható az alábbi GitHub repository-ban:\\
-\href{https://github.com/Kavefozogepezet/temalab-5g.git}{https://github.com/Kavefozogepezet/temalab-5g.git}
+\url{https://github.com/Kavefozogepezet/temalab-5g.git}
 
 \end{document} 
 
